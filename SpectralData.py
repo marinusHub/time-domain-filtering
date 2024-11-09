@@ -236,5 +236,5 @@ def tukeyF(t,t1,t2,t_width):
     
     idx_len = -max(0,idx_t1-idx_t_width)+min(t.size,idx_t2+idx_t_width)
     window_t[max(0,idx_t1-idx_t_width):min(t.size,idx_t2+idx_t_width)] =(
-            signal.tukey(N,alpha)[max(0,-(idx_t1-idx_t_width)):max(0,-(idx_t1-idx_t_width))+idx_len])
+            signal.windows.tukey(N,alpha)[max(0,-(idx_t1-idx_t_width)):max(0,-(idx_t1-idx_t_width))+idx_len])
     return window_t

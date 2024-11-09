@@ -49,7 +49,7 @@ def frs_fft(t,td_ref,td_sam, noecho=False):
     if noecho: # remove pulse echo - cut-off is hard-coded
         idx_thptf = (np.abs(t - 1450)).argmin()
         window_t = np.zeros(t.shape)
-        window_t[:idx_thptf] = signal.tukey(idx_thptf,0.1) # define Tukey filter
+        window_t[:idx_thptf] = signal.windows.tukey(idx_thptf,0.1) # define Tukey filter
         td_ref, td_sam = td_ref*window_t, td_sam*window_t
 
     # calculate complex transfer function
